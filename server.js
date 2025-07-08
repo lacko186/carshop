@@ -57,8 +57,22 @@ let Products =
 
 // api/cars végpont
 
+// get
 app.get('/api/cars', (req, res) => {
     res.json(Products);
+});
+
+
+// post
+app.post('/api/cars', (req, res) => {
+    try {
+    const ujAuto = req.body;
+    Products.push(ujAuto);  
+    res.status(201).json(ujAuto);   
+    } catch (error) {
+        console.error('Hiba történt az autó hozzáadásakor:', error);
+        res.status(500).json({ error: 'Hiba történt az autó hozzáadásakor' });
+    }
 });
 
 //végpont futtatás
