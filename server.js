@@ -55,6 +55,11 @@ let Products =
     }
 ];
 
+// api/cars végpont
+
+app.get('/api/cars', (req, res) => {
+    res.json(Products);
+});
 
 //végpont futtatás
 app.listen(port, () => {
